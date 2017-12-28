@@ -60,7 +60,7 @@
         
         self.viceScroll.contentOffset = CGPointMake(0, y);
 
-    } else {
+    } else if (y <= 47) {
         self.conflictNavView.titleView.alpha = 1 - self.mainScroll.contentOffset.y / 30;
         
         
@@ -77,6 +77,8 @@
         
         self.conflictNavView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 110 - self.mainScroll.contentOffset.y - 20);
 
+        
+    }else {
         
     }
   
@@ -106,6 +108,7 @@
     self.mainScroll.contentSize = CGSizeMake(SCREEN_WIDTH, 1000);
     self.mainScroll.delegate = self;
     self.mainScroll.backgroundColor = [UIColor greenColor];
+    self.mainScroll.scrollIndicatorInsets = UIEdgeInsetsMake(130, 0, 0, 0);
     [self addSubview:self.mainScroll];
     // 导航栏
     self.conflictNavView = [[ConflictNavView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 110)];
